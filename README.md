@@ -1,6 +1,22 @@
-# MOTO GPS · Waveshare 1.85B 硬件固件
+# MOTO GPS · Waveshare 1.85B
 
-面向 **Waveshare ESP32-S3-Touch-LCD-1.85B** 的箭头导航固件。当前推荐下载 **0.3.0-1.85b-arrow 工程验证版**。
+面向 **Waveshare ESP32-S3-Touch-LCD-1.85B** 的固件与配套资料。请先按用途选择版本：
+
+| 使用目标 | 下载入口 | 范围 |
+| --- | --- | --- |
+| 圆屏 + iPhone 配套体验 | [完整配套修复版 v0.2.1-1.85b-ios-fix1](https://github.com/SimonXian/moto-gps-waveshare-1.85b/releases/tag/v0.2.1-1.85b-ios-fix1) | ESP32 仍为 0.2.1；完整源码、独立刷机包、iOS BLE 修复与测试 |
+| 单页箭头纯硬件版 | [0.3.0-1.85b-arrow 工程验证版](https://github.com/SimonXian/moto-gps-waveshare-1.85b/releases/tag/v0.3.0-1.85b-arrow) | 保留既有硬件包；与完整配套版分别验证 |
+
+## 完整配套修复版（2026-11-09）
+
+- 只刷圆屏：下载 `MOTO-GPS-1.85B-0.2.1-ios-fix1-firmware.zip`，先读 [1.85B 刷机教程](docs/FLASHING-1.85B.md)。无需 ESP-IDF。
+- 安装 iPhone App：下载 `MOTO-GPS-1.85B-0.2.1-ios-fix1-source.zip`，按 [iOS 安装与网关说明](docs/IOS-INSTALL.md) 使用自己的签名和 HTTPS 网关。
+- 已有旧完整源码：也可下载 `MOTO-GPS-1.85B-ios-ble-fix1.zip` 覆盖两份 Swift 文件并重新生成、签名安装 App。
+- 修复 CRLF 测试向量解析导致的“连接后立即断开”；保留真正的协议自检。ESP32 镜像未改变，无需为本次 iOS 修复重刷圆屏。
+- 实体 iPhone 通过换行回归测试、完整 BLE 握手，以及接入私人网络后的真实搜索 / 公共地点路线检查；[验证范围与限制](docs/VALIDATION-ios-fix1.md)。
+- 真实搜索必须配置可用网关；本地演示不依赖它。私人网关要求手机与主机都已连接私人网络。包中没有个人网关地址、签名或公共导航服务。
+
+下文保留 **0.3.0 纯箭头硬件版** 原有步骤；不要与上述配套版混用。
 
 > 仓库目前为私有：仅拿到链接不代表获得访问权限，需要登录已获授权的 GitHub 账号。
 
